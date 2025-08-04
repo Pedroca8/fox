@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sistema de Orçamento e Estoque</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div id="login-screen">
+        <div class="login-container">
+            <div class="company-logo">
+               <img src="images/logo.svg" alt="Logo da Empresa">
+            </div>
+            <h2>Acesso ao Sistema</h2>
+            <form id="login-form">
+                <input type="password" id="password-input" placeholder="Digite a senha" required>
+                <button type="submit">Entrar</button>
+                <p id="login-error-message" class="error-message"></p>
+            </form>
+        </div>
+    </div>
+
+    <div id="main-content" class="hidden">
+        <div class="container">
+            <div class="company-logo">
+                <img src="images/logo.svg" alt="Logo da Empresa">
+            </div>
+            <h1>Sistema de Orçamento e Estoque</h1>
+
+            <div class="summary">
+                <div class="summary-item revenue">
+                    <h2>Receita Total</h2>
+                    <p id="total-revenue">R$ 0.00</p>
+                </div>
+                <div class="summary-item expense">
+                    <h2>Despesa Total</h2>
+                    <p id="total-expense">R$ 0.00</p>
+                </div>
+                <div class="summary-item balance">
+                    <h2>Saldo Líquido</h2>
+                    <p id="net-balance">R$ 0.00</p>
+                </div>
+            </div>
+
+            <div class="add-item">
+                <h2>Adicionar Novo Item ao Orçamento</h2>
+                <form id="budget-form">
+                    <input type="text" id="budget-description" placeholder="Descrição do item" required>
+                    <input type="number" id="budget-amount" placeholder="Valor" step="0.01" required>
+                    <select id="budget-type">
+                        <option value="revenue">Receita</option>
+                        <option value="expense">Despesa</option>
+                    </select>
+                    <button type="submit">Adicionar ao Orçamento</button>
+                </form>
+                <div class="inventory-search-container">
+                    <input type="text" id="inventory-search" placeholder="Buscar item no estoque para orçamento...">
+                    <ul id="inventory-search-results" class="search-results"></ul>
+                </div>
+            </div>
+
+            <div class="items-list">
+                <h2>Itens do Orçamento</h2>
+                <ul id="budget-items">
+                    <!-- Itens do orçamento serão adicionados aqui via JavaScript -->
+                </ul>
+            </div>
+
+            <div class="inventory-management">
+                <h2>Gerenciamento de Estoque</h2>
+                <form id="inventory-form">
+                    <input type="hidden" id="inventory-item-id">
+                    <input type="text" id="inventory-name" placeholder="Nome do Produto" required>
+                    <input type="text" id="inventory-code" placeholder="Código do Produto">
+                    <input type="number" id="inventory-price" placeholder="Preço Unitário" step="0.01" required>
+                    <button type="submit" id="inventory-submit-btn">Adicionar Produto</button>
+                </form>
+
+                <div class="items-list">
+                    <h3>Produtos em Estoque</h3>
+                    <ul id="inventory-items">
+                        <!-- Itens do estoque serão adicionados aqui via JavaScript -->
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
